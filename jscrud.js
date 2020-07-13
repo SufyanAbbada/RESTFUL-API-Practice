@@ -1,5 +1,6 @@
 var data,
-  status = 0;
+  status = 0,
+  checking = 0;
 $(function () {
   $("#showbtn").click(Viewing);
   $(hittingAPI);
@@ -19,7 +20,7 @@ function hittingAPI() {
 
 function Viewing() {
   console.log("Now lets show some data");
-  if (status == 0) {
+  if (checking == 0) {
     $("#showbtn").html("Hide Recipes");
     $("#result").empty();
     for (var i = 0; i < data.length; i++) {
@@ -28,6 +29,13 @@ function Viewing() {
         `<div><p>${data[i].body}<button class="btn btn-danger btn-sm float-right">Delete</button></p></div>`
       );
     }
+    status = 1;
+    checking = 10;
+    return;
+  }
+  if (status == 0) {
+    $("#showbtn").html("Hide Recipes");
+    document.getElementById("result").style.display = "block";
     status = 1;
   } else if (status == 1) {
     $("#showbtn").html("Show Recipes");
