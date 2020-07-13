@@ -12,15 +12,108 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="./jscrud.js"></script>
-    <link rel="stylesheet" href="./crudstyles.css">
+    <link rel="stylesheet" href="./crudstyles.css" />
   </head>
   <body
     class="container"
     style="font-family: Georgia, 'Times New Roman', Times, serif;"
   >
-    <h2>GET Method for API Calls</h2>
-    <button id="showbtn" class="btn btn-info">Show Recipes</button>
+    <h2>Ajax CRUD for RESTFUL APIs</h2>
+    <hr />
+    <br />
+    <div class="form-group">
+      <label for="newrecipe">New Recipe Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="newrecipe"
+        id="newrecipe"
+        aria-describedby="ExampleRecipe"
+        placeholder="Enter Recipe Title"
+      />
+      <small id="ExampleRecipe" class="form-text text-muted"
+        >Example: Deep Fried Chicken Roast</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="body">Recipe Preparation</label>
+      <input
+        type="text"
+        class="form-control"
+        name="body"
+        id="body"
+        aria-describedby="bodyExample"
+        placeholder="Enter Your Cooking Method"
+      />
+      <small id="bodyExample" class="form-text text-muted"
+        >Describe your Ingredients and Preparation Method</small
+      >
+    </div>
     <button id="addbtn" class="btn btn-warning">Add Recipe</button>
+    <hr />
+    <br />
+    <button id="showbtn" class="btn btn-info">Show Recipes</button>
     <div id="result">Recipes will Load Here</div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="Updater"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modelTitleId"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update Your Recipe</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input name="updateid" id="updateid" type="hidden" />
+            <div class="form-group">
+              <label for="updatertitle">Enter New Title</label>
+              <input
+                type="text"
+                class="form-control"
+                name="updatertitle"
+                id="updatertitle"
+                placeholder="Title of the Recipe"
+              />
+            </div>
+            <div class="form-group">
+              <label for="updaterbody">Enter New Body Details</label>
+              <textarea
+                class="form-control"
+                name="updaterbody"
+                id="updaterbody"
+                rows="3"
+                placeholder="Body and Preparation of the Recipe"
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button id="UpdateBtn" type="button" class="btn btn-primary">
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
