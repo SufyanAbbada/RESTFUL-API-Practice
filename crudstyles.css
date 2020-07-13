@@ -1,0 +1,9 @@
+#result div {
+  padding: 5px 5px;
+  border-bottom: 2px dashed palevioletred;
+  overflow: hidden;
+}
+#result div button {
+  float: right;
+  margin-left: 5px;
+}
